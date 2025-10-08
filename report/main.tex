@@ -1,0 +1,201 @@
+%!TeX program = xelatex
+\documentclass[12pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage{zjureport}
+
+%%-------------------------------正文开始---------------------------%%
+\begin{document}
+
+%%-----------------------封面--------------------%%
+\cover
+
+%%------------------摘要-------------%%
+%\begin{abstract}
+%
+%在此填写摘要内容
+%
+%\end{abstract}
+
+\thispagestyle{empty} % 首页不显示页码
+
+%%--------------------------目录页------------------------%%
+\newpage
+\tableofcontents
+
+%%------------------------正文页从这里开始-------------------%
+\newpage
+
+%%可选择这里也放一个标题
+%\begin{center}
+%    \title{ \Huge \textbf{{标题}}}
+%\end{center}
+
+\section{实验目的和要求}
+\begin{itemize}
+    \item 掌握周转时间、等待时间、平均周转时间等概念及其计算方法。
+    \item 理解三种常用的进程调度算法，区分算法之间的差异性，并模拟实现各算法。
+    \item 了解操作系统中高级调度、中级调度和低级调度的区别和联系
+\end{itemize}
+
+\section{问题描述}
+    \begin{itemize}
+        \item （1）在单道环境下，已知 $n$个作业的进入时间和估计运行时间（以分钟计），分别求出每一个作业的开始时间、结束时间、周转时间、带权周转时间，以及这些作业的平均周转时间和带权平均周转时间；
+        \item （2）在多道环境（如 2 道）下，已知 $n$ 个作业的进入时间和估计运行时间（以分钟计），分别求出每一个作业的开始时间、结束时间、周转时间、带权周转时间，以及这些作业的平均周转时间和带权平均周转时间。
+    \end{itemize}
+
+\section{实验要求}
+    \begin{itemize}
+        \item 分别用先来先服务调度算法（FCFS）、短作业优先调度算法（SJF）、响应比高者优先调度算法（HRRN），求出批作业的平均周转时间和带权平均周转时间；
+        \item 就同一批次作业，分别讨论这些算法的优劣；
+        \item 衡量同一调度算法对不同作业流的性能。
+    \end{itemize}
+
+
+\section{实验环境}
+    \begin{itemize}
+        \item 开发工具：Visual Studio / VS Code
+        \item 编程语言： C/C++/Go/Rust
+    \end{itemize}
+
+\section{设计思想及实验步骤}
+（包括实验设计原理，分析方法、计算步骤、模块组织，或主要流程图、伪代码等）
+
+\subsection{实验设计原理}
+
+\subsection{分析方法}
+
+\subsection{计算步骤}
+
+\subsection{模块组织}
+
+\subsection{伪代码}
+
+\section{实验结果及分析}
+运行结果截图，数据图表，结论分析等
+
+\section{附录：主要源代码}
+
+
+
+\newpage
+    以下为学习文档，可以删除
+\section{模板说明}
+本模板主要适用于一些课程的平时论文以及期末论文，默认页边距为2.5cm，中文宋体，英文Times New Roman，字号为12pt（小四）。
+
+编译方式：\verb|xelatex -> bibtex -> xelatex*2|
+
+
+默认模板文件由以下四部分组成：
+\begin{itemize}
+    \item \texttt{main.tex} 主文件
+    \item \texttt{reference.bib} 参考文献，使用bibtex
+    \item \texttt{zjureport.sty} 文档格式控制，包括一些基础的设置，如页眉、标题、姓名等
+    \item \texttt{figures} 放置图片的文件夹
+\end{itemize}
+
+第一次使用时需前往\texttt{zjureport.sty} 对标题、姓名、学号、院所、页眉等进行设置，设置完后即可一劳永逸，封面logo亦可替换
+
+默认带有封面页以及目录页，页码从目录页开始
+
+\section{一些插入功能}
+\subsection{插入公式}
+行内公式$v-\varepsilon+\phi=2$。
+
+插入行间公式如\autoref{Euler}：
+\begin{equation}
+    v-\varepsilon+\phi=2
+    \label{Euler}
+\end{equation}
+
+\subsection{插入图片}
+ZJU校徽如\autoref{ZJU}所示，注意这里使用了\verb|~\autoref{}|命令，也就是会自动生成“图”“式”等前缀，无需手动输入。
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width =.4\textwidth]{figures/ccnu_Logo_white.png}
+    \caption{华中师范大学}
+    \label{ZJU}
+\end{figure}
+
+插入上面图片的代码：
+
+\begin{verbatim}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width =.4\textwidth]{figures/ucas_logo.pdf}
+        \caption{华中师范大学}
+        \label{CCNU}
+    \end{figure}
+\end{verbatim}
+
+\subsection{插入文本框}
+本模板定义了一个圆角灰底的文本框，使用简化命令\verb|\tbox{}|即可，如果你不喜欢，可以前往 \texttt{ZJUReport.sty}对其进行修改。
+
+\tbox{
+    这是一个圆角灰底的文本框
+}
+
+\subsection{插入表格}
+本模板文件如\autoref{doc}所示。
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{l  | l}
+    \hline
+        文件名 & 说明 \\
+        \hline
+        \texttt{main.tex}  & 主文件 \\
+        \texttt{reference.bib} & 参考文献 \\
+        \texttt{ZJUReport.sty}  & 文档格式控制\\
+        \texttt{figures}  & 图片文件夹 \\
+        \hline
+    \end{tabular}
+    \caption{本模板文件组成}
+    \label{doc}
+\end{table}
+
+\section{定理环境}
+\begin{Theorem}
+\end{Theorem}
+
+\begin{Lemma}
+\end{Lemma}
+
+\begin{Corollary}
+\end{Corollary}
+
+\begin{Proposition}
+\end{Proposition}
+
+\begin{Definition}
+\end{Definition}
+
+\begin{Example}
+\end{Example}
+
+\begin{proof}
+\end{proof}
+
+\subsection{插入参考文献}
+直接使用\verb|\cite{}|即可。
+
+例如：
+
+
+   \textit{ 此处引用了文献\cite{0Isaac}。此处引用了文献\cite{2016The}}
+
+
+引用过的文献会自动出现在参考文献中。
+
+\section{写在最后}
+\subsection{发布地址}
+\begin{itemize}
+    \item Github: \url{https://github.com/haochengxia/zjureport}
+    \item Overleaf:  \url{https://www.overleaf.com/latex/templates/ZJUke-cheng-lun-wen-mo-ban/bcwvxncqffkw}
+\end{itemize}
+
+%%----------- 参考文献 -------------------%%
+%在reference.bib文件中填写参考文献，此处自动生成
+
+\reference
+
+
+\end{document}

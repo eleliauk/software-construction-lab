@@ -1,0 +1,13 @@
+{
+  "name": "markdown-to-html-converter",
+  "version": "1.0.0",
+  "description": "一个模块化的Markdown到HTML转换器",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js",
+    "test": "node test.js"
+  },
+  "keywords": ["markdown", "html", "converter", "modular"],
+  "author": "eleliauk"
+}
