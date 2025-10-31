@@ -9,11 +9,9 @@
 \cover
 
 %%------------------摘要-------------%%
-%\begin{abstract}
-%
-%在此填写摘要内容
-%
-%\end{abstract}
+\begin{abstract}
+本实验致力于构建一个智能家居设备管理系统，能够统一管理和控制多种智能设备，包括灯、空调、窗帘及电视。通过面向对象的设计与实现，本系统满足设备的通用与个性化控制，并通过HomeManager类实现统一的调度与管理。实验通过实际编码和测试，验证了面向对象封装、继承、多态等核心思想在工程开发中的作用。
+\end{abstract}
 
 \thispagestyle{empty} % 首页不显示页码
 
@@ -24,176 +22,141 @@
 %%------------------------正文页从这里开始-------------------%
 \newpage
 
-%%可选择这里也放一个标题
-%\begin{center}
-%    \title{ \Huge \textbf{{标题}}}
-%\end{center}
-
-\section{实验目的和要求}
+\section{实验目的和意义}
+本实验旨在：
 \begin{itemize}
-    \item 掌握周转时间、等待时间、平均周转时间等概念及其计算方法。
-    \item 理解三种常用的进程调度算法，区分算法之间的差异性，并模拟实现各算法。
-    \item 了解操作系统中高级调度、中级调度和低级调度的区别和联系
+    \item 理解面向对象程序设计思想在实际工程中的应用；
+    \item 熟练掌握类的封装、继承、多态及其带来的系统扩展性和维护性优势；
+    \item 学会如何统一管理多种智能家居设备，并支持设备个性特性的扩展；
+    \item 学会细致分析类的职责与对象关系，为高内聚低耦合的软件设计打下基础。
 \end{itemize}
 
 \section{问题描述}
-    \begin{itemize}
-        \item （1）在单道环境下，已知 $n$个作业的进入时间和估计运行时间（以分钟计），分别求出每一个作业的开始时间、结束时间、周转时间、带权周转时间，以及这些作业的平均周转时间和带权平均周转时间；
-        \item （2）在多道环境（如 2 道）下，已知 $n$ 个作业的进入时间和估计运行时间（以分钟计），分别求出每一个作业的开始时间、结束时间、周转时间、带权周转时间，以及这些作业的平均周转时间和带权平均周转时间。
-    \end{itemize}
+    在实际的智能家居系统中，需要统一管理各类智能设备，对设备开关状态进行控制，并对不同类型设备实现特有控制功能，如调节亮度、温度或打开百分比等，同时需要能够展示所有设备的当前状态。本实验的目标是用面向对象程序设计方式，实现这样一个能够灵活扩展、方便维护和统一控制的智能家居设备管理系统。
 
-\section{实验要求}
-    \begin{itemize}
-        \item 分别用先来先服务调度算法（FCFS）、短作业优先调度算法（SJF）、响应比高者优先调度算法（HRRN），求出批作业的平均周转时间和带权平均周转时间；
-        \item 就同一批次作业，分别讨论这些算法的优劣；
-        \item 衡量同一调度算法对不同作业流的性能。
-    \end{itemize}
-
+\section{需求与实验要求}
+\begin{itemize}
+    \item 管理多种智能设备，包括智能灯、空调、窗帘等，并可灵活扩展新的设备类型；
+    \item 实现设备的统一开关控制接口，并支持各自的特有功能（如亮度调节、温度调节、模式切换等）；
+    \item 可视化展示所有设备的当前状态（开/关、亮度、温度等）；
+    \item 支持异常处理，如设备未找到、参数设置非法等情况；
+    \item 支持面向对象的场景模式（如“夜间模式”同时控制多设备）；
+    \item 源代码实现需符合封装、继承、多态、单一职责、开闭原则等面向对象设计原则。
+\end{itemize}
 
 \section{实验环境}
-    \begin{itemize}
-        \item 开发工具：Visual Studio / VS Code
-        \item 编程语言： C/C++/Go/Rust
-    \end{itemize}
-
-\section{设计思想及实验步骤}
-（包括实验设计原理，分析方法、计算步骤、模块组织，或主要流程图、伪代码等）
-
-\subsection{实验设计原理}
-
-\subsection{分析方法}
-
-\subsection{计算步骤}
-
-\subsection{模块组织}
-
-\subsection{伪代码}
-
-\section{实验结果及分析}
-运行结果截图，数据图表，结论分析等
-
-\section{附录：主要源代码}
-
-
-
-\newpage
-    以下为学习文档，可以删除
-\section{模板说明}
-本模板主要适用于一些课程的平时论文以及期末论文，默认页边距为2.5cm，中文宋体，英文Times New Roman，字号为12pt（小四）。
-
-编译方式：\verb|xelatex -> bibtex -> xelatex*2|
-
-
-默认模板文件由以下四部分组成：
 \begin{itemize}
-    \item \texttt{main.tex} 主文件
-    \item \texttt{reference.bib} 参考文献，使用bibtex
-    \item \texttt{zjureport.sty} 文档格式控制，包括一些基础的设置，如页眉、标题、姓名等
-    \item \texttt{figures} 放置图片的文件夹
+    \item 开发工具：VS Code
+    \item 编程语言：JavaScript (Node.js)
 \end{itemize}
 
-第一次使用时需前往\texttt{zjureport.sty} 对标题、姓名、学号、院所、页眉等进行设置，设置完后即可一劳永逸，封面logo亦可替换
+\section{设计思想与实验步骤}
+\subsection{总体设计}
+设计上，系统采用典型的面向对象分层结构：
+\begin{itemize}
+    \item 抽象父类 \texttt{SmartDevice} 封装设备共性；
+    \item 各设备子类（如 \texttt{SmartLight}、\texttt{SmartAC}、\texttt{SmartCurtain}、\texttt{SmartTV} ）分别实现个性化行为；
+    \item \texttt{HomeManager} 类负责统一设备管理和调度，体现多态扩展能力；
+    \item \texttt{SceneMode} 类体现组合设计思想，实现一组设备的批量自动化控制。
+\end{itemize}
 
-默认带有封面页以及目录页，页码从目录页开始
+\subsection{类结构与继承关系}
+见 \autoref{fig:class-diagram}。
 
-\section{一些插入功能}
-\subsection{插入公式}
-行内公式$v-\varepsilon+\phi=2$。
-
-插入行间公式如\autoref{Euler}：
-\begin{equation}
-    v-\varepsilon+\phi=2
-    \label{Euler}
-\end{equation}
-
-\subsection{插入图片}
-ZJU校徽如\autoref{ZJU}所示，注意这里使用了\verb|~\autoref{}|命令，也就是会自动生成“图”“式”等前缀，无需手动输入。
-
-\begin{figure}[!htbp]
+\begin{figure}[h!]
     \centering
-    \includegraphics[width =.4\textwidth]{figures/ccnu_Logo_white.png}
-    \caption{华中师范大学}
-    \label{ZJU}
+    \includegraphics[width=.75\textwidth]{../lab2/class_diagram.png} % 可手动导出mermaid图为图片后放在lab2
+    \caption{智能家居系统类图}
+    \label{fig:class-diagram}
 \end{figure}
 
-插入上面图片的代码：
-
-\begin{verbatim}
-    \begin{figure}[!htbp]
-        \centering
-        \includegraphics[width =.4\textwidth]{figures/ucas_logo.pdf}
-        \caption{华中师范大学}
-        \label{CCNU}
-    \end{figure}
-\end{verbatim}
-
-\subsection{插入文本框}
-本模板定义了一个圆角灰底的文本框，使用简化命令\verb|\tbox{}|即可，如果你不喜欢，可以前往 \texttt{ZJUReport.sty}对其进行修改。
-
-\tbox{
-    这是一个圆角灰底的文本框
-}
-
-\subsection{插入表格}
-本模板文件如\autoref{doc}所示。
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{l  | l}
-    \hline
-        文件名 & 说明 \\
-        \hline
-        \texttt{main.tex}  & 主文件 \\
-        \texttt{reference.bib} & 参考文献 \\
-        \texttt{ZJUReport.sty}  & 文档格式控制\\
-        \texttt{figures}  & 图片文件夹 \\
-        \hline
-    \end{tabular}
-    \caption{本模板文件组成}
-    \label{doc}
-\end{table}
-
-\section{定理环境}
-\begin{Theorem}
-\end{Theorem}
-
-\begin{Lemma}
-\end{Lemma}
-
-\begin{Corollary}
-\end{Corollary}
-
-\begin{Proposition}
-\end{Proposition}
-
-\begin{Definition}
-\end{Definition}
-
-\begin{Example}
-\end{Example}
-
-\begin{proof}
-\end{proof}
-
-\subsection{插入参考文献}
-直接使用\verb|\cite{}|即可。
-
-例如：
-
-
-   \textit{ 此处引用了文献\cite{0Isaac}。此处引用了文献\cite{2016The}}
-
-
-引用过的文献会自动出现在参考文献中。
-
-\section{写在最后}
-\subsection{发布地址}
+\subsection{主要类及方法说明}
 \begin{itemize}
-    \item Github: \url{https://github.com/haochengxia/zjureport}
-    \item Overleaf:  \url{https://www.overleaf.com/latex/templates/ZJUke-cheng-lun-wen-mo-ban/bcwvxncqffkw}
+    \item \textbf{Controllable（接口）}：定义统一的 \texttt{turnOn}/\texttt{turnOff} 方法（接口/ABC）。
+    \item \textbf{SmartDevice（抽象父类）}：所有设备的统一属性和通用方法；ID、名称、开关状态私有化存储，暴露公共只读接口。
+    \item \textbf{SmartLight / SmartAC / SmartCurtain / SmartTV（具体设备子类）}：分别实现特有的控制能力，如设置亮度、温度、频道、音量等。
+    \item \textbf{HomeManager}：存储和管理全部设备实例，提供加入/移除/统一控制及展示能力。
+    \item \textbf{SceneMode}：聚合多个“动作”，实现场景控制模式。
 \end{itemize}
 
-%%----------- 参考文献 -------------------%%
-%在reference.bib文件中填写参考文献，此处自动生成
+\subsection{计算步骤及核心流程}
+\begin{enumerate}
+    \item 定义统一抽象父类及接口→实现各个具体智能设备→统一加入HomeManager管理。
+    \item 通过HomeManager批量控制、展示、异常处理。
+    \item 通过SceneMode实现批量场景模式并测试正确性。
+\end{enumerate}
+
+\section{主要实现与测试}
+\subsection{部分主要源代码}
+（完整代码见附录/lab2目录，下方为部分核心片段摘录）
+
+% 代码示例（节选，详见lab2目录）
+\begin{verbatim}
+// SmartDevice.js
+class SmartDevice {
+    constructor(deviceId, deviceName) {
+        if (new.target === SmartDevice) {
+            throw new Error("不能直接实例化SmartDevice抽象类");
+        }
+        this._deviceId = deviceId;
+        this._deviceName = deviceName;
+        this._isOn = false;
+    }
+    turnOn() { this._isOn = true; }
+    turnOff() { this._isOn = false; }
+    getStatus() { return this._isOn ? "开" : "关"; }
+    get deviceId() { return this._deviceId; }
+    get deviceName() { return this._deviceName; }
+    get isOn() { return this._isOn; }
+    getDeviceType() { throw new Error("请在子类中实现getDeviceType方法"); }
+}
+
+// SmartLight.js
+class SmartLight extends SmartDevice {
+    constructor(deviceId, deviceName, brightness = 100) {
+        super(deviceId, deviceName);
+        this._brightness = brightness;
+    }
+    setBrightness(level) { /* ... */ }
+    getDeviceType() { return "智能灯"; }
+    getStatus() { return `${super.getStatus()}，亮度：${this._brightness}`; }
+}
+// ... 其余代码见附件 ...
+\end{verbatim}
+
+\subsection{功能与效果展示}
+\begin{itemize}
+    \item 支持多种类型设备，灵活增减，且能统一开关与特有功能控制；
+    \item 支持一次控制多设备场景，如一键夜间模式：\texttt{SceneMode}批量设置行为；
+    \item 完善的异常处理与边界条件检验，如ID重复，参数非法等都能给出明确提示。
+\end{itemize}
+
+\section{关键问题分析与回答}
+\subsection{封装分析}
+\textbf{被封装的属性：} 如 \_deviceId、\_deviceName、\_isOn 等全部设为私有（类内访问），通过getter暴露只读访问接口。封装的目的是防止外部直接篡改，增强类的健壮性与安全性，保护对象一致性。
+
+\subsection{继承层次与说明}
+见~\autoref{fig:class-diagram}。
+各设备子类（灯、空调、窗帘、电视）均继承SmartDevice的共性（ID、名称、开关、状态展示等），并根据不同子类实现额外专有操作（如亮度、温度、模式等）。
+
+\subsection{多态体现}
+HomeManager中的设备操作方法（如turnOnDevice、turnOffDevice和displayAllDevices），是通过调用基类接口来操作不同子类对象，具体运行时会自动分发到正确的子类实现（如getStatus、turnOn），这是多态机制的直接体现。
+
+\subsection{类的扩展性与修改性}
+如果添加新设备类型，只需新增对应子类，无需更改HomeManager的核心逻辑。因为其对所有设备采用了接口/基类依赖，不需区分具体类型。这符合开闭原则（对扩展开放，对修改封闭）。
+
+\subsection{设计原则分析}
+\begin{itemize}
+  \item \textbf{开闭原则：} 只需扩展即可接入新设备类型，无需大规模更改已有代码。
+  \item \textbf{单一职责：} 每个类职责单一，SmartXxx仅描述单一设备，HomeManager负责管理，SceneMode负责场景。
+\end{itemize}
+
+\subsection{改进建议}
+\begin{itemize}
+    \item 可增加设备与网络/用户的交互、事件推送、远程控制等功能。
+    \item 设备属性和方法可进一步抽象为接口，提升灵活性。
+    \item 可集成数据库和前端页面，提升可视化及数据持久化能力。
+\end{itemize}
 
 \reference
 
